@@ -4,17 +4,20 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/VincentKiHwan/js/entities/entities.js</file>
-            <file>file:/C:/xampp/htdocs/VincentKiHwan/js/gamemanagers/Pause.js</file>
-            <file>file:/C:/xampp/htdocs/VincentKiHwan/js/entities/PlayerBaseEntity.js</file>
             <file>file:/C:/xampp/htdocs/VincentKiHwan/js/resources.js</file>
             <file>file:/C:/xampp/htdocs/VincentKiHwan/js/screens/play.js</file>
             <file>file:/C:/xampp/htdocs/VincentKiHwan/js/gamemanagers/HeroDeathManager.js</file>
+            <file>file:/C:/xampp/htdocs/VincentKiHwan/js/entities/Monster1.js</file>
+            <file>file:/C:/xampp/htdocs/VincentKiHwan/js/screens/newProfile.js</file>
+            <file>file:/C:/xampp/htdocs/VincentKiHwan/js/screens/loadProfile.js</file>
             <file>file:/C:/xampp/htdocs/VincentKiHwan/js/screens/title.js</file>
             <file>file:/C:/xampp/htdocs/VincentKiHwan/js/game.js</file>
             <file>file:/C:/xampp/htdocs/VincentKiHwan/index.php</file>
             <file>file:/C:/xampp/htdocs/VincentKiHwan/data/img/level2ani.png</file>
+            <file>file:/C:/xampp/htdocs/VincentKiHwan/js/gamemanagers/SpendGold.js</file>
+            <file>file:/C:/xampp/htdocs/VincentKiHwan/js/screens/spendExp.js</file>
             <file>file:/C:/xampp/htdocs/VincentKiHwan/js/gamemanagers/GameTimeManager.js</file>
-            <file>file:/C:/xampp/htdocs/VincentKiHwan/js/entities/EnemyBaseEntity.js</file>
+            <file>file:/C:/xampp/htdocs/VincentKiHwan/index.css</file>
             <file>file:/C:/xampp/htdocs/VincentKiHwan/js/gamemanagers/GameManager.js</file>
             <file>file:/C:/xampp/htdocs/VincentKiHwan/js/entities/SpearThrow.js</file>
         </group>

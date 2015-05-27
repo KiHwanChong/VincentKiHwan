@@ -4,7 +4,7 @@ game.PlayScreen = me.ScreenObject.extend({
      */
     onResetEvent: function() {
         // play the audio track
-        me.audio.playTrack("play-bgm");
+//        me.audio.playTrack("play-bgm");
 
         // reset the score
         game.data.score = 0;
@@ -24,8 +24,8 @@ game.PlayScreen = me.ScreenObject.extend({
         var spendGold = me.pool.pull("SpendGold", 0, 0, {});
         me.game.world.addChild(spendGold, 0);
 
-        var pause = me.pool.pull("pause", 0, 0, {});
-        me.game.world.addChild(pause, 0);
+//        var pause = me.pool.pull("pause", 0, 0, {});
+//        me.game.world.addChild(pause, 0);
        
         //setting up input keys for right, left, and jump
         me.input.bindKey(me.input.KEY.B, "buy");

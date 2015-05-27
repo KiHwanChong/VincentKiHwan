@@ -2,10 +2,10 @@ game.PlayerEntity = me.Entity.extend({
     init: function(x, y, settings) {
         this.level1 = true;
         this.level2 = false;
-        if(this.level1 === true && this.level2 === false) {
+        if(this.level1 === true) {
             this.setSuper(x, y);
         }
-        if(this.level2 === true && this.level1 === false) {
+        else if(this.level2 === true) {
             
             this.setSuper2(x, y);
         }
@@ -126,19 +126,10 @@ game.PlayerEntity = me.Entity.extend({
             }
         }
         
-        if (me.input.isKeyPressed("attack")) {
-            if(this.level1 === true && this.level2 === false){
-                this.level2 = true;
-                this.level1 = false;
-            }else if(this.level2 === true && this.level1 === false){
-                this.level2 = false;
-                this.level1 = true;
             
-            }
-            }
+            
         
 
-        this.attacking = me.input.isKeyPressed("attack");
     },
     checkAbilityKeys: function() {
         if (me.input.isKeyPressed("skill1")) {
@@ -202,15 +193,21 @@ game.PlayerEntity = me.Entity.extend({
     collideHandler: function(response) {
         if (response.b.type === 'EnemyBaseEntity') {
             this.collideWithEnemyBase(response);
-        } else if (response.b.type === 'EnemyCreep') {
+        } else if (response.b.type === 'Monster1') {
             this.collideWithEnemyCreep(response);
-        } else if (response.b.type === 'EnemyEntity') {
-            this.collideWithEnemyEntity(response);
-        } else if (response.b.type === 'PlayerCreep') {
+        } else if (response.b.type === 'Armor1') {
             //checking if the player collides with creep, enabling the player to eat the creep
-            this.eatCreep(response);
+            this.collideWithArmor1(response);
         }
     },
+    
+    collideWithArmor1: function(response){
+        
+        this.level2 = true;
+        me.game.world.removeChild(response.b);
+        
+    },
+    
     collideWithEnemyBase: function(response) {
         var ydif = this.pos.y - response.b.pos.y;
         var xdif = this.pos.x - response.b.pos.x;
@@ -294,75 +291,16 @@ game.PlayerEntity = me.Entity.extend({
     }
 });
 
-//drawing monster
-game.Monster1 = me.Entity.extend({
-    init: function(x, y, settings) {
-        this._super(me.Entity, 'init', [x, y, {
-                image: "slime",
-                spritewidth: "64",
-                spriteheight: "64",
-                width: 64,
-                height: 64,
-                getShape: function() {
-                    return (new me.Rect(0, 0, 64, 64)).toPolygon();
-                }
-            }]);
-//making monster walk from starX to endX
-        this.spritewidth = 64;
-        var width = settings.width;
-        x = this.pos.x;
-        this.startX = x;
-        this.endX = x + width - this.spritewidth;
-        this.pos.x = x + width - this.spritewidth;
-        this.updateBounds();
-
-        this.alwaysUpdate = true;
-
-        this.walkLeft = false;
-        this.alive = true;
-        this.type = "monster1";
-//animation for skeleton
-        this.renderable.addAnimation("run", [144, 145, 146], 80);
-        this.renderable.setCurrentAnimation("run");
-
-        this.body.setVelocity(3, 6);
-    },
-    //enabling skeleton to move left and right
-    update: function(delta) {
-        this.body.update(delta);
-        me.collision.check(this, true, this.collideHandler.bind(this), true);
-
-        if (this.alive) {
-            if (this.walkLeft && this.pos.x <= this.startX) {
-                this.walkLeft = false;
-            } else if (!this.walkLeft && this.pos.x >= this.endX) {
-                this.walkLeft = true;
-            }
-            this.flipX(this.walkLeft);
-            this.body.vel.x += (this.walkLeft) ? -this.body.accel.x * me.timer.tick : this.body.accel.x * me.timer.tick;
-        } else {
-            me.game.world.removeChild(this);
-        }
-
-        this._super(me.Entity, "update", [delta]);
-        return true;
-    },
-    collideHandler: function() {
-
-    }
-
-});
-
 game.Armor1 = me.Entity.extend({
     init: function(x, y, settings) {
         this._super(me.Entity, 'init', [x, y, {
                 image: "armor1",
-                spritewidth: "64",
-                spriteheight: "64",
-                width: 64,
-                height: 64,
+                spritewidth: "72",
+                spriteheight: "47",
+                width: 72,
+                height: 47,
                 getShape: function() {
-                    return (new me.Rect(0, 0, 64, 64)).toPolygon();
+                    return (new me.Rect(0, 0, 72, 47)).toPolygon();
                 }
             }]);
 

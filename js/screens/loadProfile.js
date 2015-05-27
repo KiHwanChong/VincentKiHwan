@@ -4,8 +4,8 @@ game.LoadProfile = me.ScreenObject.extend({
          */
         onResetEvent: function() {
             // play the audio track
-            me.audio.playTrack("menu-bgm");
- 
+//            me.audio.playTrack("menu-bgm");
+// 
             me.game.world.addChild( new me.Sprite (0, 0, me.loader.getImage('load-screen')), -10); 
             game.data.gameover = false;
 

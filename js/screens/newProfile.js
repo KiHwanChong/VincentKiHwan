@@ -4,8 +4,8 @@ game.NewProfile = me.ScreenObject.extend({
 	 */
 	onResetEvent: function() {
             // play the audio track
-            me.audio.playTrack("menu-bgm");
- 	
+//            me.audio.playTrack("menu-bgm");
+// 	
             me.game.world.addChild( new me.Sprite (0, 0, me.loader.getImage('new-screen')), -10); 
             document.getElementById("input").style.visibility = "visible";
             document.getElementById("register").style.visibility = "visible";

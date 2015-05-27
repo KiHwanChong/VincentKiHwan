@@ -9,8 +9,6 @@ var game = {
 		score : 0,
                 option1: "",
                 option2: "",
-                enemyBaseHealth : 15,
-                playerBaseHealth : 15,
                 enemyCreepHealth: 5,
                 enemyHeroHealth: 10,
                 playerCreepHealth: 5,
@@ -95,18 +93,13 @@ var game = {
 	"loaded" : function () {
             //registering player
                 me.pool.register("player", game.PlayerEntity, true);
-                me.pool.register("PlayerBase", game.PlayerBaseEntity);
-                me.pool.register("EnemyBase", game.EnemyBaseEntity);
-                me.pool.register("EnemyCreep", game.EnemyCreep, true);
-                me.pool.register("PlayerCreep", game.PlayerCreep, true);
                 me.pool.register("GameTimerManager", game.GameTimerManager); 
                 me.pool.register("HeroDeathManager", game.HeroDeathManager);                
                 me.pool.register("ExperienceManager", game.ExperienceManager);              
                 me.pool.register("SpendGold", game.SpendGold);              
                 me.pool.register("spear", game.SpearThrow);              
-                me.pool.register("pause", game.Pause);
-                me.pool.register("EnemyEntity", game.EnemyEntity, true);
-                me.pool.register("Jump", game.Jump, true);
+                me.pool.register("Monster1", game.Monster1, true);
+                me.pool.register("Armor1", game.Armor1, true);
             
             
 		me.state.set(me.state.MENU, new game.TitleScreen());
